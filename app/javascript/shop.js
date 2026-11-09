@@ -3,7 +3,10 @@ let basketCount = 0;
 let basketContentsHTML = "";
 let basketEntities = [];
 
-document.addEventListener("turbolinks:load", function () {
+document.addEventListener("turbo:load", function () {
+  // The basket only exists on shop pages.
+  if (!document.getElementById("purchase-form")) return;
+
   updateTotal(0);
   updateCount(0);
   updateContents();
