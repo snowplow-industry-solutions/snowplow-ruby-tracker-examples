@@ -4,8 +4,8 @@ An example of how to incorporate [Snowplow](https://snowplowanalytics.com/) trac
 
 ### Versions used:
 
-**Ruby** v3.0.0  
-**Rails** v6.1.4  
+**Ruby** v3.3  
+**Rails** v8.1  
 **Ruby tracker** v0.8.0  
 **JavaScript tracker** v3.1.0
 
@@ -26,7 +26,7 @@ An example of how to incorporate [Snowplow](https://snowplowanalytics.com/) trac
 
 ## 1. Quick Start
 
-**Requirements**: Ruby 3.0, Yarn, Bundle, Docker, and Cypress (for the tests).
+**Requirements**: Ruby 3.1+ (3.3 recommended), Yarn (for Cypress), Bundle, Docker, and Cypress (for the tests).
 
 Install project dependencies:
 
@@ -344,10 +344,10 @@ docker run \
 
 Snowplow Micro provides four API endpoints, `micro/all`, `micro/good`, `micro/bad`, and `micro/reset`. Visit them in your client at e.g. `http://localhost:9090/micro/good`.
 
-In this app, we use the e2e testing library [Cypress](https://www.cypress.io/) to test event collection. We defined a set of custom Cypress Commands in `spec/cypress/support/commands.js` that relate to Snowplow events. For example, here is a test for a self-describing (custom) purchase event:
+In this app, we use the e2e testing library [Cypress](https://www.cypress.io/) to test event collection. We defined a set of custom Cypress Commands in `cypress/support/commands.js` that relate to Snowplow events. For example, here is a test for a self-describing (custom) purchase event:
 
 ```javascript
-// in spec/cypress/integration/event_self_describing_spec.js
+// in cypress/e2e/event_self_describing_spec.cy.js
 // with added comments
 
 it("is emitted by Ruby tracker for purchase activity", () => {
